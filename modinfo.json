@@ -1,0 +1,24 @@
+{
+  "author": "wondible",
+  "build": "67342",
+  "category": ["hotfix"],
+  "context": "client",
+  "date": "2014/06/14",
+  "description": "Hotfix for inability to click after using hotkeys.",
+  "display_name": "Hotkeyfix Cant Build",
+  "enabled": true,
+  "forum": null,
+  "id": "hotkeyfix_cant_build",
+  "identifier": "com.wondible.pa.hotkeyfix_cant_build",
+  "priority": 100,
+  "requires": [],
+  "scenes": {
+    "live_game": [
+      "coui://ui/mods/hotkeyfix_cant_build/hotkeyfix_cant_build.css",
+      "coui://ui/mods/hotkeyfix_cant_build/hotkeyfix_cant_build.js"
+    ]
+  },
+  "signature": "not yet implemented",
+  "version": "1.0.0"
+}
+
