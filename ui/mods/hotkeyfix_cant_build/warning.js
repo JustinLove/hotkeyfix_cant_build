@@ -7,7 +7,7 @@
       height: 400,
       width: 600,
       modal: true,
-      autoOpen: model.buildVersion() != '67342',
+      autoOpen: model.buildVersion() != '68767',
       buttons: {
           "EXIT": function () {
               model.exit();
@@ -31,23 +31,12 @@
   var enableCanery = function() {
     var container = $('<div id="insertion_point"></div>')
     container.appendTo('body')
-    loadTemplate(container, 'coui://ui/mods/hotkeyfix_cant_build/hotkeyfix_cant_build.html', model);
+    loadTemplate(container, 'coui://ui/mods/hotkeyfix_cant_build/warning.html', model);
   }
 
-  //enableCanery()
-
-  model.buildItemFromList = function (index) {
-      // Reset any fab build selections we may have had.
-      model.currentBuildStructureId('');
-      
-      api.panels.build_bar.query('build_item', index).then(function(id) {
-          if (!id) 
-              return;
-          
-          model.resetClearBuildSequence();
-
-          model.buildItemBySpec(id);
-      });
-  };
-
+  if (model.buildVersion()) {
+    enableCanery()
+  } else {
+    model.buildVersion.subscribe(enableCanery)
+  }
 })()
